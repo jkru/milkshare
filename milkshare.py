@@ -87,10 +87,9 @@ def create_acct():
     u.last_name = last
     u.email = email_in
     u.password = password_in
-    u.zipcode = zipcode_in
-    
-    #u.baby_dob = datetime.strptime((str(baby_year+"-"+"-01")).split()[0], "%Y-%m-%d")
-    #m.date =     datetime.strptime(str(datetime.now()).split()[0], "%Y-%m-%d")
+    u.zip_code = zipcode_in
+    u.baby_dob = datetime.strptime(str(baby_year+"-"+baby_month+"-01").split()[0], "%Y-%m-%d")
+
 
     model.session.add(u)
     model.session.commit()
