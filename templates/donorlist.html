@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% block head %}
+
+<style>body{background-image: url("/static/img/milkshare-blank-light-sfw.jpg");}</style>
+
+{% endblock %}
 {% block body %}
 
 <!-- 
@@ -8,10 +13,9 @@ List of donor posts
 - Ability to click on donor > Donor Profile > Message
 -->
 
-
-
-
-<table>
+<div class="col-md-2"></div>
+<div class="col-md-8">
+<table class="table-striped">
     <tr>
         <th>Date</th>
         <th>Name</th>
@@ -37,12 +41,11 @@ List of donor posts
             <td> {% if post.user.no_caffeine %}No caffeine /n{% endif %} </td>
             <td> {% if post.user.no_alcohol %}No alcohol /n{% endif %} </td>
             <td> {{ post.blurb }} </td>
-
-
-        </tr>
+    </tr>
     {% endfor %}
 
-	<div>
-	</div>
+</div>
+
+<div class="col-md-2"></div>
 
 {% endblock %}
