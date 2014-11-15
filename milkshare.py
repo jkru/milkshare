@@ -54,9 +54,15 @@ def actually_login():
         print "loggedin???"
     return redirect(url_for("dashboard"))
 
+
+@app.route("/main")
+def main_page():
+
+    return render_template("main.html")
+
 @app.route("/dashboard")
 def dashboard():
-    return render_template("main.html")
+    return render_template("dashboard.html")
 
 
 @app.route("/logout")
