@@ -1,0 +1,3 @@
+httplib2>=0.8
+oauth2client>=1.3
+uritemplate>=0.6
