@@ -10,14 +10,14 @@
 Write a message to a donor
 -->
 
-<div class="col-md-3"></div>
-<div class="col-md-7">
+<div class="col-md-4"></div>
+<div class="col-md-6">
 <form action="/sendmessage" method="POST">
 	<fieldset>
 		<legend>Private Message:</legend>
-		To:{{user.first_name}} {{user.last_name}} <br>
-		Subject:<textarea id="subjectarea" name="subject"></textarea><br>
-		Message:<br>
+		<p><strong>To: </strong>{{user.first_name}} {{user.last_name}} </p>
+		<p><strong>Subject: </strong><textarea id="subjectarea" name="subject" rows="1" cols="50"></textarea></p>
+		<strong>Message: </strong><br>
 	<textarea id="textarea" name="inputmessage" rows="4" cols="75">Your Message</textarea><div class="submit">
 	<input type="submit" value="Submit"></div></fieldset>
 </form>

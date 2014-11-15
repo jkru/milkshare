@@ -11,27 +11,71 @@ User Dashboard
 
 <div class="col-md-3"></div>
 <div class="col-md-9">
-<div><a href="/milkexchange">Milk Exchange</a></div>
-<div><a href="/newpost">New Post</a></div>
+	<div class="message"><h4>My Received Messages</h4></div>
+		<div>
+			<table class="table">
+			<tr>
+				<th>Sender</th>
+				<th>Date</th>
+				<th>Subject</th>
+				<th>Message</th>
+			</tr>
+				{% for amess in received  %}
+				<tr>
+				<td>{{amess.sender.first_name}}</td>
+				<td>{{amess.date}}</td>
+				<td>{{amess.subject}}</td>
+				<td>{{amess.message}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
 
-<div><h4>My Received Messages</h4></div>
-	<div>
-		<div>Sender Date Subject</div>
+		<hr/>
+
+		<div class="message"><h4>My Sent Messages</h4></div>
+			<div>
+				<table class="table">
+					<tr>
+						<th>Recipient</th>
+						<th>Date</th>
+						<th>Subject</th>
+						<th>Message</th>
+					</tr>
+					{% for amess in sent  %}
+					<tr>
+						<td>{{amess.recipient.first_name}}</td>
+						<td>{{amess.date}}</td>
+						<td>{{amess.subject}}</td>
+					 	<td>{{amess.message}}</td>
+						{% endfor %}
+					</tr>
+				</table>
+			</div>
+		<div><a href="/milkexchange">Milk Exchange</a></div>
+		<div><a href="/newpost">Make New Post</a></div>
+		</div>
+		
+	</div>
+	
+</div>
+
+{% endblock %}
+
+
+<!-- 	<div>Sender Date Subject</div>
 			{% for amess in received  %}
 			<div>{{amess.sender.first_name}} {{amess.date}} {{amess.subject}} </div>
-			Message:
+			<strong>Message:</strong>
 			<div>{{amess.message}}</div>
 			{% endfor %}
-		</div>
-		<div><h4>My Sent Messages</h4></div>
+	</div>
+	<div class="message"><h4>My Sent Messages</h4></div>
 		<div>
 			<div>Recipient Date Subject</div>
 			{% for amess in sent  %}
 			<div>{{amess.recipient.first_name}} {{amess.date}} {{amess.subject}} </div>
-			Message:
+			<strong>Message:</strong>
 			<div>{{amess.message}}</div>
 			{% endfor %}
-		</div>
-</div>
-
-{% endblock %}
+		</div> -->
