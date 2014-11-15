@@ -60,7 +60,6 @@ def dashboard():
     received_messages = model.get_received_messages(session['id'])
     return render_template("dashboard.html",sent=sent_messages,received=received_messages)
 
-
 @app.route("/logout")
 def log_out():
     session.clear()

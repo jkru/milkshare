@@ -11,6 +11,16 @@ body{
 	border-color: #FFF;
 }*/
 
+.navbar-inverse .navbar-nav>li{
+	color:#634f84;
+	display: inline-block;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+	color:#634f84;
+	display: inline-block;
+}
+
 .navbar {
    background-color: transparent;
    background: transparent;
@@ -25,6 +35,10 @@ body{
 
 .navbar-inverse .navbar-brand{
 	color: #634f84;
+}
+
+.nav .navbar-nav .navbar-right{
+	display: inline-block;
 }
 
 .login{
@@ -47,4 +61,56 @@ body{
 	font-family: 'Josefin Slab', serif;
 	text-align: center;
 	color: #634f84;
+}
+
+.textarea{
+	width:200px;
+}
+
+.edit-profile{
+	
+}
+
+.editlabel{
+	font-family: 'Josefin Slab', serif;
+	text-align: center;
+	color: #634f84;
+}
+
+.yourprofile{
+	font-family: 'Josefin Slab', serif;
+	color: #634f84;
+}
+
+.donorprofile{
+	font-family: 'Josefin Slab', serif;
+	color: #634f84;
+}
+
+.message{
+	font-family: 'Josefin Slab', serif;
+	color: #634f84;
+}
+
+.submit{
+	padding-top: 10px;
+	padding-bottom: 110px;
+}
+
+.textarea{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.welcome{
+	font-family: 'Josefin Slab', serif;
+	color: #634f84;
+	text-align: center;
+}
+
+.main-menu{
+	font-family: 'Josefin Slab', serif;
+	color: #634f84;
+	text-align: center;
+	padding-top: 50px;
 }
