@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, make_response
 from flask import redirect, url_for, session, g, flash
 import jinja2
 import model
-
+from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = 'boobs'
@@ -65,7 +65,6 @@ def dashboard():
 @app.route("/logout")
 def log_out():
     session.clear()
-    #session['logged_in'] = False
     return render_template("home.html")
 
 
@@ -85,23 +84,42 @@ def editprofile():
 
 @app.route("/milkexchange")
 def milk_exchange_board():
-
     all_posts = model.get_posts()
-    #return render_template("stupid.html", all_posts=all_posts)
     return render_template("donorlist.html", all_posts=all_posts)
 
-@app.route("/message")
-def private_message():
+@app.route("/users/<int:user_id>")
+def donor_profile(user_id):
+    user = model.get_user_by_id(user_id)
+    return render_template("donorprofile.html",user=user)
 
-    return render_template("message.html")
+@app.route("/users/<int:user_id>/messages/")
+def private_message(user_id):
+    user = model.get_user_by_id(user_id)
+    session['lookingat_id'] = user.id
+    return render_template("message.html",user=user)
 
-@app.route("/donorprofile")
-def donor_profile():
-    return render_template("donorprofile.html")
+@app.route("/sendmessage", methods=['POST'])
+def send_message():
+    inmessage = request.form.get("inputmessage")
+    senderid = session['id']
+    recipientid = session['lookingat_id']
+    insubject = request.form.get("subject")
 
-#@app.route("/users/<>")
-#def donor_profile():
-#    return render_template("donorprofile.html")
+    m = model.Message()
+    m.sender_id = senderid
+    m.recipient_id = recipientid
+    m.date = datetime.strptime(str(datetime.now()).split()[0], "%Y-%m-%d")
+    m.subject = insubject
+    m.message = inmessage
+    model.session.add(m)
+    model.session.commit()
+
+    return redirect(url_for("milk_exchange_board"))
+
+@app.route("/newpost")
+def new_post():
+    
+    return render_template()
 
 
 if __name__ == "__main__":
