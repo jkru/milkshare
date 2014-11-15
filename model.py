@@ -1,6 +1,6 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
-from sqlalchemy import Column, Integer, String, DateTime, Text, Float, Boolean
+from sqlalchemy import Column, Integer, String, DateTime, Text, Boolean
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship, backref
@@ -14,7 +14,7 @@ session = scoped_session(sessionmaker(bind=engine,
 Base = declarative_base()
 Base.query = session.query_property
 
-### Class declarations go here
+### Class declarations
 
 class User(Base):
     __tablename__ = "users"
@@ -35,31 +35,31 @@ class User(Base):
     no_soy = Column(Boolean, nullable=True)
     no_caffeine = Column(Boolean, nullable=True)
     no_alcohol = Column(Boolean, nullable=True)
-    drug_info = Column(Text, )
-    has_health_info
-    about_me
-    notes
+    drug_info = Column(Text, nullable=True)
+    has_health_info = Column(Boolean, nullable=True)
+    about_me = Column(Text, nullable=True)
+    notes = Column(Text, nullable=True)
 
 class Post(Base):
     __tablename__ = "posts"
 
     id = Column(Integer, primary_key=True)
-    user_id
-    req_or_off
-    date
-    amt_milk
-    recurring
-    blurb
+    user_id = Column(Integer, nullable=False)
+    req_or_off = Column(String(10), nullable=False)
+    date = Column(DateTime, nullable=False)
+    amt_milk = Column(String(64), nullable=True)
+    recurring = Column(Boolean, nullable=True)
+    blurb = Column(Text, nullable=True)
 
 class Message(Base)
     __tablename__ = "messages"
 
     id = Column(Integer, primary_key=True)
-    sender_id
-    recipient_id
-    date
-    subject
-    message
+    sender_id = Column(Integer, nullable=False)
+    recipient_id = Column(Integer, nullable=False)
+    date = Column(DateTime, nullable=False)
+    subject = Column(String(200), nullable=True)
+    message = Column(Text, nullable=False)
 
 ### End class declarations
 
