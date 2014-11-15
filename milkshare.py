@@ -68,8 +68,20 @@ def log_out():
     return render_template("home.html")
 
 
-@app.route("/createacct")
+@app.route("/createacct", methods=['POST'])
 def create_acct():
+    first = request.form.get("first_name")
+    last = request.form.get("last_name")
+    email_in = request.form.get("email")
+    password_in = request.form.get("password")
+
+    u = model.User()
+    u.first_name = first
+    u.last_name = last
+    u.email = email_in
+    u.password = password_in
+    model.session.add(u)
+    model.session.commit
     return render_template("createacct.html")
 
 
