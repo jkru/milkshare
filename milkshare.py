@@ -87,8 +87,8 @@ def editprofile():
 def milk_exchange_board():
 
     all_posts = model.get_posts()
-    return render_template("stupid.html", all_posts=all_posts)
-    #return render_template("donorlist.html", all_posts=all_posts)
+    #return render_template("stupid.html", all_posts=all_posts)
+    return render_template("donorlist.html", all_posts=all_posts)
 
 @app.route("/message")
 def private_message():
@@ -98,6 +98,10 @@ def private_message():
 @app.route("/donorprofile")
 def donor_profile():
     return render_template("donorprofile.html")
+
+#@app.route("/users/<>")
+#def donor_profile():
+#    return render_template("donorprofile.html")
 
 
 if __name__ == "__main__":

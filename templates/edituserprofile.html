@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+
+<!-- 
+Where a user edits their profile
+-->
+<div class="col-md-3"></div>
+<div class="col-md-7">
+	<div><form class="edit-profile" method="POST">
+		<div class="editlabel">
+			<h3> Edit Your Profile </h3>
+		</div>
+		<div class="form-group"><label for="first_name"></label>
+			<input type = "text" name ="first_name" id="first_name" class="form-control" placeholder="First Name"/></div>
+		<div class="form-group"><label for="last_name"></label>
+			<input type = "text" name ="last_name" id="last_name" class="form-control" placeholder="Last Name"/></div>
+		<div class="form-group"><label for="email"></label>
+			<input type = "email" name ="email" id="email" class="form-control" placeholder="Email"/></div>
+		<div class="form-group"><label for="password"></label>
+			<input type = "password" name="password" id="password" class="form-control" placeholder="Password"/></div>
+		<div class="form-group"><label for="age"></label>
+			<input type = "text" name ="age" id="age" class="form-control" placeholder="Donor Age"/></div>
+		<div class="form-group"><label for="cell_phone"></label>
+			<input type = "text" name ="cell_phone" id="cell_phone" class="form-control" placeholder="Phone Number"/></div>
+		<div class="form-group"><label for="zip_code"></label>
+			<input type = "text" name="zip_code" id="zip_code" class="form-control" placeholder="Zip Code"/></div>
+		<div class="checkbox"><label><input type="checkbox"> No Dairy</label></div>
+		<div class="checkbox"><label><input type="checkbox"> No Wheat</label></div>
+		<div class="checkbox"><label><input type="checkbox"> No Soy</label></div>
+		<div class="checkbox"><label><input type="checkbox"> No Caffeine</label></div>
+		<div class="checkbox"><label><input type="checkbox"> No Alcohol</label></div>
+		<div class="checkbox"><label><input type="checkbox"> Health info available</label></div>
+
+		<div class="text-area"><label for="textarea">Drug information</label>
+  		<div class="controls">                     
+    	<textarea id="textarea" name="textarea" rows="3">Are you taking any medications the recipient should be aware of?</textarea>
+  		</div></div>
+
+  		<div class="text-area"><label for="textarea">About You</label>
+  		<div class="controls">                     
+    	<textarea id="textarea" name="textarea" rows="3">Who are you?</textarea>
+  		</div></div>
+
+  		<div class="text-area"><label for="textarea">Notes</label>
+  		<div class="controls">                     
+    	<textarea id="textarea" name="textarea" rows="3">Any additional information to share?</textarea>
+  		</div></div>
+
+		<div class="form-group"><input class="btn btn-default" type="submit" value="Submit" id="signup-submit"></div>
+	</form></div>
+
+	</div>
+<div class="col-md-2"></div>
+		
+{% endblock %}
