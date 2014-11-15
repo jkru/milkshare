@@ -1,14 +1,33 @@
 {% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
 {% block body %}
 
-<!-- 
-Donor profile information
+<div class="donorinfo">
 
--Button to private message
--->
+	<p>First Name: {{ user.first_name }} </p>
+	<p>Last Name: {{ user.last_name }} </p>
+	<p>Email: {{ user.email }} </p>
+	<p>Password: {{ user.password }} </p>
+	<p>Phone Number: {{ user.cell_phone }} </p>
+	<p>Zip Code: {{ user.zip_code }} </p>
 
+	<p>No Dairy: {% if user.no_dairy == True %}x{% endif %}</p>
+	<p>No Wheat: {% if user.no_wheat == True %} x{% endif %}</p>
+	<p>No Soy: {% if user.no_soy == True %}x{% endif %} </p>
+	<p>No Caffeine: {% if user.no_caffeine == True %}x{% endif %} </p>
+	<p>No Alcohol: {% if user.no_alcohol == True %}x{% endif %} </p>
+	
 
-	<div>
-	</div>
+	<p>Drug Information: {{ user.drug_info }} </p>
+	
+	<p>About Me: {{user.about_me}}</p>
+
+	<p>Notes: {{ user.notes }} </p>
+
+</div>
 
 {% endblock %}

@@ -80,7 +80,11 @@ class Message(Base):
     recipient = relationship("User", foreign_keys = 'Message.recipient_id', backref=backref("recieved_messages", order_by=id))
 
 ### End class declarations
+def get_sent_messages(my_id):
+    return session.query(Message).filter_by(sender_id=my_id)
 
+def get_received_messages(my_id):
+    return session.query(Message).filter_by(recipient_id=my_id)
 
 def main():
     Base.metadata.create_all(engine)
