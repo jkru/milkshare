@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% block head %}
+
+<style>body{background-image: url("/static/img/home-baby-v2-sfw.jpg");}</style>
+
 <script>
 
 </script>
@@ -12,21 +15,35 @@ Splash Page
 Login
 Site Description
 -->
+<div class="homebody">
 
-<form class="form-inline" role="form"> 
-<div class="form-group"> 
-<div class="input-group"> 
-<label class="sr-only" for="exampleInputEmail2">Email address</label> 
-<div class="input-group-addon">@</div> 
-<input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email"> </div> 
-</div> 
-<div class="form-group"> 
-<label class="sr-only" for="exampleInputPassword2">Password</label> <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password"> 
-</div> 
-<div class="checkbox"> <label> <input type="checkbox"> Remember me </label> </div> <button type="submit" class="btn btn-default">Sign in</button> </form>
+	<div class="col-md-4"></div>
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
+		
+		<div class = "login">
+			<div class="loginlabel">
+			<h3> Login </h3>
+			</div>
+			<div class="login-form">
+				<form class="form-group" role="form" action="/login" method="POST"> 
+				<div class="form-group"> 
+				<div class="input-group"> 
+				<label class="sr-only" for="exampleInputEmail2">Email address</label> 
+				<div class="input-group-addon">@</div> 
+				<input type="email" name="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email"> </div> 
+				</div> 
+				<div class="form-group"> 
+				<label class="sr-only" for="exampleInputPassword2">Password</label> <input type="password" name="password" class="form-control" id="exampleInputPassword2" placeholder="Password"></div> 
+				<div class="checkbox"> <label> <input type="checkbox"> Remember me </label> </div> <button type="submit" class="btn btn-default">Sign in</button> </form>
+			</div>
+		</div>
+	</div>
 
 
 	<div>
 	</div>
+
+</div>
 
 {% endblock %}
