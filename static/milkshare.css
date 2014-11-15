@@ -1,3 +1,44 @@
 body{
-	background-image: "/static/img/home-baby-v1-sfw.jpg";
+	background-image: url("/static/img/milkshare-blank-sfw.jpg");
+}
+
+/*body{
+	background-image: url("/static/img/home-baby-v2-sfw.jpg");
+}*/
+
+/*.navbar-inverse {
+	background-color: #FFF;
+	border-color: #FFF;
+}*/
+
+.navbar {
+   background-color: transparent;
+   background: transparent;
+   border-color: transparent;
+}
+
+.navbar-header{
+	font-family: 'Josefin Slab', serif;
+	font-size: 48px;
+	color: #634f84;
+}
+
+.navbar-inverse .navbar-brand{
+	color: #634f84;
+}
+
+.login{
+	padding-top: 150px;
+	padding-left: 50px;
+	width: 75%;
+}
+
+.login-form{
+	text-align: right;
+}
+
+.loginlabel{
+	font-family: 'Josefin Slab', serif;
+	text-align: center;
+	color: #634f84;
 }

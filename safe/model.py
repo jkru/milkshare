@@ -7,7 +7,7 @@ from sqlalchemy.orm import relationship, backref
 
 
 
-engine = create_engine("sqlite:///milkshare.db", echo=False)
+engine = create_engine("sqlite:///milkshare.db", echo=True)
 session = scoped_session(sessionmaker(bind=engine, 
                                       autocommit=False,
                                       autoflush=False))
@@ -39,6 +39,14 @@ class User(Base):
     has_health_info = Column(Boolean, nullable=True)
     about_me = Column(Text, nullable=True)
     notes = Column(Text, nullable=True)
+
+#def get_user_by_email(in_email, in_password):
+#    user = session.query(User).filter_by(email=in_email).first()
+#    if user:
+#        if user.password != in_password:
+#            return "incorrect password"
+#    return user
+
 
 class Post(Base):
     __tablename__ = "posts"
