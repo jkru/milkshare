@@ -47,6 +47,8 @@ def get_user_by_email(email, password):
             return "incorrect password"
     return user
 
+def get_user_by_id(id):
+    return session.query(User).get(id)
 
 class Post(Base):
     __tablename__ = "posts"
