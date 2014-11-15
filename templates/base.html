@@ -1,0 +1,44 @@
+<html>
+    <head>
+ 
+        <link href="/static/boobstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/static/milkshare.css" rel="stylesheet">
+
+        <div class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <img src=""><a class="navbar-brand" href="/">MilkShare</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                            {% if g.logged_in %}
+                            <li> <a href="">Log Out</a></li> 
+                            {% else %}
+                            <li><a href="">Log In</a></li>
+                            {% endif %} 
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes">
+                {% for message in messages %}
+                    <div class="alert alert-info" role="alert">{{ message }}</div>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        {% block head %}
+        {% endblock %}
+    
+    </head>
+    <body>
+
+        {% block body %}
+        {% endblock %}
+    
+
+    </body>
+</html>
