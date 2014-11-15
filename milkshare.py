@@ -201,11 +201,8 @@ def new_post():
 
     model.session.add(p)
     model.session.commit()
-    return redirect(url_for("show_login"))
-
-
-    return render_template("newpost.html")
-
+    #return render_template("newpost.html")
+    return redirect(url_for("milk_exchange_board"))
 
 if __name__ == "__main__":
     app.run(debug=True)
