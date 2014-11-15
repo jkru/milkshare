@@ -61,6 +61,9 @@ class Post(Base):
 
     user = relationship("User", backref=backref("posts", order_by=id))
 
+    def get_posts():
+        return session.query(Post).all()
+
 class Message(Base):
     __tablename__ = "messages"
 
