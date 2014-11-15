@@ -28,7 +28,8 @@ class User(Base):
     linkedin_id = Column(String(64), nullable=True)
     first_name = Column(String(64), nullable=False)
     last_name = Column(String(64), nullable=False)
-    baby_dob = Column(DateTime, nullable=False)
+    #put this bac
+    baby_dob = Column(DateTime, nullable=True)
     zip_code = Column(String(12), nullable=False)
     no_dairy = Column(Boolean, nullable=True)
     no_wheat = Column(Boolean, nullable=True)
@@ -40,12 +41,12 @@ class User(Base):
     about_me = Column(Text, nullable=True)
     notes = Column(Text, nullable=True)
 
-#def get_user_by_email(in_email, in_password):
-#    user = session.query(User).filter_by(email=in_email).first()
-#    if user:
-#        if user.password != in_password:
-#            return "incorrect password"
-#    return user
+def get_user_by_email(email, password):
+    user = session.query(User).filter_by(email=email).first()
+    if user:
+        if user.password != password:
+            return "incorrect password"
+    return user
 
 
 class Post(Base):
@@ -61,6 +62,9 @@ class Post(Base):
 
     user = relationship("User", backref=backref("posts", order_by=id))
 
+def get_posts():
+    return session.query(Post).all()
+
 class Message(Base):
     __tablename__ = "messages"
 
@@ -71,8 +75,8 @@ class Message(Base):
     subject = Column(String(200), nullable=True)
     message = Column(Text, nullable=False)
 
-    sender = relationship("User", backref=backref("sent_messages", order_by=id))
-    recipient = relationship("User", backref=backref("recieved_messages", order_by=id))
+    sender = relationship("User", foreign_keys = 'Message.sender_id', backref=backref("sent_messages", order_by=id))
+    recipient = relationship("User", foreign_keys = 'Message.recipient_id', backref=backref("recieved_messages", order_by=id))
 
 ### End class declarations
 

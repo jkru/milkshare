@@ -1,20 +1,20 @@
 <html>
     <head>
- 
+        <link href='http://fonts.googleapis.com/css?family=Josefin+Slab:400,700italic' rel='stylesheet' type='text/css'>
         <link href="/static/boobstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="/static/milkshare.css" rel="stylesheet">
 
         <div class="navbar navbar-inverse navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-                    <img src=""><a class="navbar-brand" href="/">MilkShare</a>
+                    <img src=""><a class="navbar-brand" href="/"><strong>MilkShare</strong></a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                            {% if g.logged_in %}
-                            <li> <a href="">Log Out</a></li> 
+                            {% if "logged_in" in session %}
+                            <li> <a href="/logout">Log Out</a></li> 
                             {% else %}
-                            <li><a href="">Log In</a></li>
+                            <li><a href="/login">Log In</a></li>
                             {% endif %} 
                     </ul>
                 </div>
