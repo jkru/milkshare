@@ -11,50 +11,55 @@ Where a user edits their profile
 -->
 <div class="col-md-3"></div>
 <div class="col-md-7">
-	<div><form class="edit-profile" method="POST">
+	<div><form class="edit-profile" method="POST" action="/editprofile">
 		<div class="editlabel">
 			<h3> Edit Your Profile </h3>
 		</div>
 		<div class="form-group"><label for="first_name"></label>
-			<input type = "text" name ="first_name" id="first_name" class="form-control" placeholder="First Name"/></div>
+			<input type = "text" name ="first_name" id="first_name" class="form-control" value={{ user.first_name }}></div>
 		<div class="form-group"><label for="last_name"></label>
-			<input type = "text" name ="last_name" id="last_name" class="form-control" placeholder="Last Name"/></div>
+			<input type = "text" name ="last_name" id="last_name" class="form-control" value={{ user.last_name }}></div>
 		<div class="form-group"><label for="email"></label>
-			<input type = "email" name ="email" id="email" class="form-control" placeholder="Email"/></div>
+			<input type = "email" name ="email" id="email" class="form-control" value={{ user.email }}></div>
 		<div class="form-group"><label for="password"></label>
-			<input type = "password" name="password" id="password" class="form-control" placeholder="Password"/></div>
+			<input type = "password" name="password" id="password" class="form-control" value={{ user.password }}></div>
 		<div class="form-group"><label for="age"></label>
-			<input type = "text" name ="age" id="age" class="form-control" placeholder="Donor Age"/></div>
+			<input type = "text" name ="age" id="age" class="form-control" value={{ user.baby_dob }}></div>
 		<div class="form-group"><label for="cell_phone"></label>
-			<input type = "text" name ="cell_phone" id="cell_phone" class="form-control" placeholder="Phone Number"/></div>
+			<input type = "text" name ="cell_phone" id="cell_phone" class="form-control" {% if user.cell_phone %}value={{ user.cell_phone }} {% else %} placeholder="cell phone number" {% endif %}></div>
 		<div class="form-group"><label for="zip_code"></label>
-			<input type = "text" name="zip_code" id="zip_code" class="form-control" placeholder="Zip Code"/></div>
-		<div class="checkbox"><label><input type="checkbox"> No Dairy</label></div>
-		<div class="checkbox"><label><input type="checkbox"> No Wheat</label></div>
-		<div class="checkbox"><label><input type="checkbox"> No Soy</label></div>
-		<div class="checkbox"><label><input type="checkbox"> No Caffeine</label></div>
-		<div class="checkbox"><label><input type="checkbox"> No Alcohol</label></div>
-		<div class="checkbox"><label><input type="checkbox"> Health info available</label></div>
+			<input type = "text" name="zip_code" id="zip_code" class="form-control" value={{ user.zip_code }}></div>
+		<div class="checkbox"><label><input type="checkbox" name="dairy" {% if user.no_dairy %} checked="yes" {% endif %}> No Dairy</label></div>
+		<div class="checkbox"><label><input type="checkbox" name="wheat" {% if user.no_wheat %} checked="yes" {% endif %}> No Wheat</label></div>
+		<div class="checkbox"><label><input type="checkbox" name="soy" {% if user.no_soy %} checked="yes" {% endif %}> No Soy</label></div>
+		<div class="checkbox"><label><input type="checkbox" name="caffeine" {% if user.no_caffeine %} checked="yes" {% endif %}> No Caffeine</label></div>
+		<div class="checkbox"><label><input type="checkbox" name="alcohol" {% if user.no_alcohol %} checked="yes" {% endif %}> No Alcohol</label></div>
+		<div class="checkbox"><label><input type="checkbox" name="health" {% if user.has_health_info %} checked="yes" {% endif %}> Health info available</label></div>
 
 		<div class="text-area"><label for="textarea">Drug information</label>
   		<div class="controls">                     
-	    	<textarea id="textarea" name="textarea" rows="4" cols="75">Are you taking any medications the recipient should be aware of?</textarea>
+
+    	<textarea id="textarea" name="drug" rows="4" cols="75">{% if user.drug_info %}{{user.drug_info}}{% endif %}</textarea>
   		</div></div>
 
   		<div class="text-area"><label for="textarea">About You</label>
-	  		<div class="controls">                     
-	    	<textarea id="textarea" name="textarea" rows="4" cols="75">Who are you?</textarea>
+  		<div class="controls">                     
+    	<textarea id="textarea" name="about" rows="4" cols="75">{% if user.about_me %}{{user.about_me}}{% endif %}</textarea>
   		</div></div>
 
   		<div class="text-area"><label for="textarea">Notes</label>
-	  		<div class="controls">                     
-	    	<textarea id="textarea" name="textarea" rows="4" cols="75">Any additional information to share?</textarea>
+  		<div class="controls">                     
+    	<textarea id="textarea" name="notes" rows="4" cols="75">{% if user.notes %}{{user.notes}}{% endif %}</textarea>
+
+	
   		</div></div>
 
+
+		<div class="form-group"><input class="btn btn-default" type="submit" value="Submit" id="signup-submit"></div>
 		
 		</form></div>
 
-		<div class="form-group"><input class="btn btn-default" type="submit" value="Submit" id="signup-submit"></div>
+
 
 	</div>
 <div class="col-md-2"></div>

@@ -89,20 +89,59 @@ def create_acct():
     u.zip_code = zipcode_in
     u.baby_dob = datetime.strptime(str(baby_year+"-"+baby_month+"-01").split()[0], "%Y-%m-%d")
 
-
     model.session.add(u)
     model.session.commit()
     return redirect(url_for("show_login"))
-
 
 @app.route("/myprofile")
 def myprofile():
     user_info = model.get_user_by_id(session['id'])
     return render_template("userprofile.html", user=user_info)
 
-@app.route("/editprofile")
+@app.route("/editprofile", methods=['GET'])
+def load_editprofile():
+    user = model.get_user_by_id(session['id'])
+    return render_template("edituserprofile.html", user=user)
+
+@app.route("/editprofile", methods=['POST'])
 def editprofile():
-    return render_template("edituserprofile.html")
+    first = request.form.get("first_name")
+    last = request.form.get("last_name")
+    email_in = request.form.get("email")
+    password_in = request.form.get("password")
+    age = request.form.get("age")
+    cell = request.form.get("cell_phone")
+    zipcode = request.form.get("zip_code")
+    dairy = request.form.get("dairy")
+    wheat = request.form.get("wheat")
+    soy = request.form.get("soy")
+    caffeine = request.form.get("caffeine")
+    alcohol = request.form.get("alcohol")
+    health = request.form.get("health")
+    drug = request.form.get("drug")
+    about = request.form.get("about")
+    notes = request.form.get("notes")
+
+    u = model.get_user_by_id(session['id'])
+    u.first_name = first
+    u.last_name = last
+    u.email = email_in
+    u.password = password_in
+    u.cell_phone = cell
+    u.baby_dob = datetime.strptime(age, "%Y-%m-%d")
+    u.zip_code = zipcode
+    u.no_dairy = (dairy == "on")
+    u.no_wheat = (wheat == "on")
+    u.no_soy = (soy == "on")
+    u.no_caffeine = (caffeine == "on")
+    u.no_alcohol = (alcohol == "on")
+    u.drug_info = drug
+    u.has_health_info = (health == "on")
+    u.about_me = about
+    u.notes = notes
+    model.session.commit()
+    flash("Profile changes saved.")
+    return redirect("/dashboard")
 
 @app.route("/milkexchange")
 def milk_exchange_board():
