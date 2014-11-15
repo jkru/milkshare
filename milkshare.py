@@ -65,7 +65,6 @@ def dashboard():
 @app.route("/logout")
 def log_out():
     session.clear()
-    #session['logged_in'] = False
     return render_template("home.html")
 
 
@@ -97,6 +96,15 @@ def donor_profile(user_id):
 def private_message(user_id):
     user = model.get_user_by_id(user_id)
     return render_template("message.html",user=user)
+
+@app.route("/sendmessage")
+def send_message():
+    return render_template()
+
+@app.route("/newpost")
+def new_post():
+    return render_template()
+
 
 if __name__ == "__main__":
     app.run(debug=True)

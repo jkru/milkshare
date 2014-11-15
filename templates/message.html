@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
 {% block body %}
 
-<form action="action_page.php">
+<form action="/sendmessage">
 <fieldset>
 <legend>Private Message:</legend>
 To Donor:{{user.first_name}} {{user.last_name}} <br>
 Message:<br>
-<input type="textarea">
-<br><br>
-<input type="submit" value="Submit"></fieldset>
+<textarea id="textarea" name="inputmessage" rows="4" cols="75">Your Message</textarea><div class="submit">
+<input type="submit" value="Submit"></div></fieldset>
 </form>
 
 
