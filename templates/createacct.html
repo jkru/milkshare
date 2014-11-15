@@ -1,12 +1,33 @@
 {% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
 {% block body %}
 
 <!-- 
 Account Creation Form
 -->
 
-
-	<div>
+	<div class="col-md-6"></div>
+	<div class="col-md-4" class="createform">
+		<div class="createlabel">
+			<h3> Create an Account </h3>
+		</div>
+		<div><form class="sign-up-form" method="POST">
+		<div class="form-group"><label for="first_name"></label>
+			<input type = "text" name ="first_name" id="first_name" class="form-control" placeholder="First Name" /></div>
+		<div class="form-group"><label for="last_name"></label>
+			<input type = "text" name ="last_name" id="last_name" class="form-control" placeholder="Last Name"/></div>
+		<div class="form-group"><label for="email"></label>
+			<input type = "email" name ="email" id="email" class="form-control" placeholder="Enter email"/></div>
+		<div class="form-group"><label for="password"></label>
+			<input type = "password" name="password" id="password" class="form-control" placeholder="Password"/></div>
+		<div class="form-group"><input class="btn btn-default" type="submit" value="Submit" id="signup-submit"></div>
+		</form></div>
 	</div>
+	<div class="col-md-2"></div>
 
+		
 {% endblock %}
