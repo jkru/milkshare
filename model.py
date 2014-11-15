@@ -55,6 +55,7 @@ class Post(Base):
 
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    #request or offer
     req_or_off = Column(String(10), nullable=False)
     date = Column(DateTime, nullable=False)
     amt_milk = Column(String(64), nullable=True)
