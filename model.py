@@ -40,12 +40,12 @@ class User(Base):
     about_me = Column(Text, nullable=True)
     notes = Column(Text, nullable=True)
 
-    def get_user_by_email(email, password):
-        user = session.query(User).filter(email=email).first()
-        if user:
-            if user.password != password:
-                return "incorrect password"
-        return user
+def get_user_by_email(email, password):
+    user = session.query(User).filter(email=email).first()
+    if user:
+        if user.password != password:
+            return "incorrect password"
+    return user
 
 
 class Post(Base):
@@ -61,8 +61,8 @@ class Post(Base):
 
     user = relationship("User", backref=backref("posts", order_by=id))
 
-    def get_posts():
-        return session.query(Post).all()
+def get_posts():
+    return session.query(Post).all()
 
 class Message(Base):
     __tablename__ = "messages"
