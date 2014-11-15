@@ -30,29 +30,24 @@ def try_other():
 
 @app.route("/login", methods=['POST'])
 def actually_login():
-    print "something else"
     email = request.form.get("email")
     password = request.form.get("password")
-    print password
+
     #user = model.session.query(model.User).filter_by(email=temail).first()
     
     user = model.get_user_by_email(email, password)
 
     if user is None:
-        print "none"
         flash("User does not exist")
         return redirect(url_for('actually_login'))
-    #elif user.password != password:
     elif user == "incorrect password":
         flash("Incorrect password")
-        print "incorrectpw"
         return redirect(url_for('actually_login'))
     else:
         session['email'] = user.email
         session['id'] = user.id
         session['logged_in'] = True
-        print "loggedin???"
-    return redirect(url_for("dashboard"))
+    return redirect(url_for("main_page"))
 
 
 @app.route("/main")
@@ -62,7 +57,9 @@ def main_page():
 
 @app.route("/dashboard")
 def dashboard():
-    return render_template("dashboard.html")
+    sent_messages = model.get_sent_messages(session['id'])
+    received_messages = model.get_received_messages(session['id'])
+    return render_template("dashboard.html",sent=sent_messages,received=received_messages)
 
 
 @app.route("/logout")
@@ -92,6 +89,16 @@ def milk_exchange_board():
     all_posts = model.get_posts()
     return render_template("stupid.html", all_posts=all_posts)
     #return render_template("donorlist.html", all_posts=all_posts)
+
+@app.route("/message")
+def private_message():
+
+    return render_template("message.html")
+
+@app.route("/donorprofile")
+def donor_profile():
+    return render_template("donorprofile.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
