@@ -7,14 +7,20 @@ import model
 app = Flask(__name__)
 secret_key = 'boobs'
 
+
 @app.route("/")
 def testthings():
-    return render_template("test_oauth.html")
+    return render_template("home.html")
 
 
 @app.route("/login")
 def show_login():
-    return render_template("login.html")
+    return render_template("home.html")
+
+
+@app.route("/main")
+def show_main():
+    return render_template("main.html")
 
 
 @app.route("/login", methods=['POST'])
@@ -26,21 +32,30 @@ def actually_login():
         flash("User does not exist")
         return redirect(url_for('actually_login'))
     #elif (password != customer)
-
     else:
         session['email'] = user.email
-        
+    return render_template("home.html")
 
-    return render_template("login.html")
 
 @app.route("/logout")
 def log_out():
     return 
 
-@app.route("/account")
+
+@app.route("/createacct")
+def create_acct():
+    return render_template("createacct.html")
+
+
+@app.route("/userprofile")
 def account():
-    
-    return render_template("account_page.html")
+    return render_template("userprofile.html")
+
+
+
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)
 
