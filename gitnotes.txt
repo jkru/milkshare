@@ -1,0 +1,5 @@
+git merge --no-ff -->whatever<-- jkru-master
+git fetch origin
+git rebase origin/master
+git push origin master
+
