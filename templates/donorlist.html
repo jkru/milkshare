@@ -15,6 +15,48 @@ List of donor posts
 
 <div class="col-md-1"></div>
 <div class="col-md-10">
+
+<div class="header">Filter Results</div>
+
+<div class="filter">
+    
+    <form class="form-inline" role="form" action="/milkexchange">
+        <div class="form-group">
+        <div class="input-group">
+            <select class="form-control" name="age">
+            <option>0 - 3 months</option>
+            <option>3 - 6 months</option>
+            <option>6 - 9 months</option>
+            <option>9 - 12 months</option>
+            <option>12 - 18 months</option>
+            <option>18+ months</option>
+            </select>
+        </div>
+        </div>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox1" value="zipcode" name="nearby"> Nearby
+            </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox2" value="dairy" name="dairy"> Dairy
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox3" value="wheat" name="wheat"> Wheat
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox1" value="soy" name="soy"> Soy
+            </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox2" value="caffeine" name="caffeine"> Caffeine
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox3" value="alcohol" name="alcohol"> Alcohol
+        </label>
+        <button type="submit" class="btn btn-default" id="filtersubmit">Submit</button>
+    </form>
+</div>
+
+<div class="header">Results</div>
+
 <table class="table">
     <tr>
         <th>Date</th>

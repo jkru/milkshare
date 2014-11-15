@@ -114,3 +114,28 @@ body{
 	text-align: center;
 	padding-top: 50px;
 }
+
+.tagline{
+	font-family: 'Josefin Slab', serif;
+	color: #634f84;
+	text-align: center;
+	padding-top: 50px;
+	font-style: italic;
+	font-size: 30px;
+}
+
+.header{
+	font-family: 'Josefin Slab', serif;
+	color: #634f84;
+	font-size: 14px;
+}
+
+#filtersubmit{
+	padding-left: 15px;
+	padding-top: 5px;
+	vertical-align: center;
+}
+
+.checkbox-inline{
+	padding-right: 10px;
+}
