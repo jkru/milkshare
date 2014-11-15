@@ -44,22 +44,27 @@ class Post(Base):
     __tablename__ = "posts"
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, nullable=False)
+    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
     req_or_off = Column(String(10), nullable=False)
     date = Column(DateTime, nullable=False)
     amt_milk = Column(String(64), nullable=True)
     recurring = Column(Boolean, nullable=True)
     blurb = Column(Text, nullable=True)
 
-class Message(Base)
+    user = relationship("User", backref=backref("posts", order_by=id))
+
+class Message(Base):
     __tablename__ = "messages"
 
     id = Column(Integer, primary_key=True)
-    sender_id = Column(Integer, nullable=False)
-    recipient_id = Column(Integer, nullable=False)
+    sender_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    recipient_id = Column(Integer, ForeignKey('users.id'), nullable=False)
     date = Column(DateTime, nullable=False)
     subject = Column(String(200), nullable=True)
     message = Column(Text, nullable=False)
+
+    sender = relationship("User", backref=backref("sent_messages", order_by=id))
+    recipient = relationship("User", backref=backref("recieved_messages", order_by=id))
 
 ### End class declarations
 
