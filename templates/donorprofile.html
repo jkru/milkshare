@@ -6,29 +6,40 @@
 
 {% block body %}
 
+<!-- 
+Donor profile information
+
+-Button to private message
+-->
+<div class="col-md-3"></div>
+<div class="col-md-7">
 <div class="donorinfo">
+	<div class="donorprofile">
+		<h3> Donor Profile </h3>
+	</div>
+	<p><strong>First Name:</strong> {{ user.first_name }} </p>
+	<p><strong>Last Name:</strong> {{ user.last_name }} </p>
+	<p><strong>Email:</strong> {{ user.email }} </p>
+	<p><strong>Password:</strong> {{ user.password }} </p>
+	<p><strong>Phone Number:</strong> {{ user.cell_phone }} </p>
+	<p><strong>Zip Code:</strong> {{ user.zip_code }} </p>
 
-	<p>First Name: {{ user.first_name }} </p>
-	<p>Last Name: {{ user.last_name }} </p>
-	<p>Email: {{ user.email }} </p>
-	<p>Password: {{ user.password }} </p>
-	<p>Phone Number: {{ user.cell_phone }} </p>
-	<p>Zip Code: {{ user.zip_code }} </p>
-
-	<p>No Dairy: {% if user.no_dairy == True %}x{% endif %}</p>
-	<p>No Wheat: {% if user.no_wheat == True %} x{% endif %}</p>
-	<p>No Soy: {% if user.no_soy == True %}x{% endif %} </p>
-	<p>No Caffeine: {% if user.no_caffeine == True %}x{% endif %} </p>
-	<p>No Alcohol: {% if user.no_alcohol == True %}x{% endif %} </p>
+	<p><strong>No Dairy:</strong> {% if user.no_dairy == True %}x{% endif %}</p>
+	<p><strong>No Wheat:</strong> {% if user.no_wheat == True %} x{% endif %}</p>
+	<p><strong>No Soy:</strong> {% if user.no_soy == True %}x{% endif %} </p>
+	<p><strong>No Caffeine:</strong></strong> {% if user.no_caffeine == True %}x{% endif %} </p>
+	<p><strong>No Alcohol:</strong> {% if user.no_alcohol == True %}x{% endif %} </p>
 	
 
-	<p>Drug Information: {{ user.drug_info }} </p>
+	<p><strong>Drug Information:</strong> {{ user.drug_info }} </p>
 	
-	<p>About Me: {{user.about_me}}</p>
+	<p><strong>About Me:</strong> {{user.about_me}}</p>
 
-	<p>Notes: {{ user.notes }} </p>
+	<p><strong>Notes:</strong> {{ user.notes }} </p>
 	<p><a href="/users/{{user.id}}/messages/">Message {{ user.first_name }}</a> </p>
 
 </div>
+</div>
+<div class="col-md-2"></div>
 
 {% endblock %}

@@ -9,28 +9,29 @@ User Dashboard
 
 -->
 
-
+<div class="col-md-3"></div>
+<div class="col-md-9">
 <div><a href="/milkexchange">Milk Exchange</a></div>
 <div><a href="/newpost">New Post</a></div>
 
 <div><h4>My Received Messages</h4></div>
-<div>
-<div>Sender Date Subject</div>
-{% for amess in received  %}
-<div>{{amess.sender.first_name}} {{amess.date}} {{amess.subject}} </div>
-Message:
-<div>{{amess.message}}</div>
-{% endfor %}
+	<div>
+		<div>Sender Date Subject</div>
+			{% for amess in received  %}
+			<div>{{amess.sender.first_name}} {{amess.date}} {{amess.subject}} </div>
+			Message:
+			<div>{{amess.message}}</div>
+			{% endfor %}
+		</div>
+		<div><h4>My Sent Messages</h4></div>
+		<div>
+			<div>Recipient Date Subject</div>
+			{% for amess in sent  %}
+			<div>{{amess.recipient.first_name}} {{amess.date}} {{amess.subject}} </div>
+			Message:
+			<div>{{amess.message}}</div>
+			{% endfor %}
+		</div>
 </div>
-<div><h4>My Sent Messages</h4></div>
-<div>
-<div>Recipient Date Subject</div>
-{% for amess in sent  %}
-<div>{{amess.recipient.first_name}} {{amess.date}} {{amess.subject}} </div>
-Message:
 
-<div>{{amess.message}}</div>
-{% endfor %}
-</div>
-<div></div>
 {% endblock %}
