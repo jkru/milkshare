@@ -41,7 +41,7 @@ class User(Base):
     notes = Column(Text, nullable=True)
 
 def get_user_by_email(email, password):
-    user = session.query(User).filter(email=email).first()
+    user = session.query(User).filter_by(email=email).first()
     if user:
         if user.password != password:
             return "incorrect password"

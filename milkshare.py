@@ -73,7 +73,7 @@ def create_acct():
 
 @app.route("/myprofile")
 def myprofile():
-    user_info = get_user_by_id(session['id'])
+    user_info = model.get_user_by_id(session['id'])
     return render_template("userprofile.html", user=user_info)
 
 @app.route("/editprofile")

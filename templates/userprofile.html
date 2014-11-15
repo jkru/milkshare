@@ -19,12 +19,12 @@ Where a user sees their profile
 	<p>Phone Number: {{ user.cell_phone }} </p>
 	<p>Zip Code: {{ user.zip_code }} </p>
 
-	<p>No Dairy: {% if user.no_dairy == True %}</p>
-	<p>No Wheat: {% if user.no_wheat == True %} </p>
-	<p>No Soy: {% if user.no_soy == True %} </p>
-	<p>No Caffeine: {% if user.no_caffeine == True %} </p>
-	<p>No Alcohol: {% if user.no_alcohol == True %} </p>
-	<p>Health Info Available: {% if user.has_health_info == True %} </p>
+	<p>No Dairy: {% if user.no_dairy == True %}x{% endif %}</p>
+	<p>No Wheat: {% if user.no_wheat == True %} x{% endif %}</p>
+	<p>No Soy: {% if user.no_soy == True %}x{% endif %} </p>
+	<p>No Caffeine: {% if user.no_caffeine == True %}x{% endif %} </p>
+	<p>No Alcohol: {% if user.no_alcohol == True %}x{% endif %} </p>
+	<p>Health Info Available: {% if user.has_health_info == True %}x{% endif %} </p>
 
 	<p>Drug Information: {{ user.drug_info }} </p>
 
