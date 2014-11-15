@@ -15,7 +15,6 @@ def testthings():
 
 @app.route("/login")
 def show_login():
-    print "showing log in"
     return render_template("home.html")
 
 
@@ -67,6 +66,10 @@ def log_out():
     session.clear()
     return render_template("home.html")
 
+@app.route("/createacct")
+def display_create_acct():
+    return render_template("createacct.html")
+
 
 @app.route("/createacct", methods=['POST'])
 def create_acct():
@@ -74,15 +77,24 @@ def create_acct():
     last = request.form.get("last_name")
     email_in = request.form.get("email")
     password_in = request.form.get("password")
+    zipcode_in = request.form.get("zipcode")
+    baby_year = request.form.get("year")
+    baby_month = request.form.get("month")
+     
 
     u = model.User()
     u.first_name = first
     u.last_name = last
     u.email = email_in
     u.password = password_in
+    u.zipcode = zipcode_in
+    
+    #u.baby_dob = datetime.strptime((str(baby_year+"-"+"-01")).split()[0], "%Y-%m-%d")
+    #m.date =     datetime.strptime(str(datetime.now()).split()[0], "%Y-%m-%d")
+
     model.session.add(u)
-    model.session.commit
-    return render_template("createacct.html")
+    model.session.commit()
+    return redirect(url_for("show_login"))
 
 
 @app.route("/myprofile")
