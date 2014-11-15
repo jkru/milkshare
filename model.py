@@ -74,8 +74,8 @@ class Message(Base):
     subject = Column(String(200), nullable=True)
     message = Column(Text, nullable=False)
 
-    sender = relationship("User", backref=backref("sent_messages", order_by=id))
-    recipient = relationship("User", backref=backref("recieved_messages", order_by=id))
+    sender = relationship("User", foreign_keys = 'Message.sender_id', backref=backref("sent_messages", order_by=id))
+    recipient = relationship("User", foreign_keys = 'Message.recipient_id', backref=backref("recieved_messages", order_by=id))
 
 ### End class declarations
 
