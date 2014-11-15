@@ -9,6 +9,40 @@ List of donor posts
 -->
 
 
+{% endfor %}
+
+
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Name</th>
+        <th>Infant's Age</th>
+        <th>Zip Code</th>
+        <th>Amount of Milk</th>
+        <th>Recurring?</th>
+        <th>Dietary Restrictions</th>
+        <th>Notes</th>
+
+    </tr>
+    {% for post in all_posts %}
+        <tr>
+        	<td> {{ post.date }} </td>
+            <td> <a href="/users/{{ post.user.id }}">{{ post.user.first_name }} {{post.user.last_name}}</a></td>
+            <td> {{ post.user.baby_dob }} </td>
+            <td> {{ post.user.zip_code }} </td>
+            <td> {{ post.amt_milk }}
+            <td> {% if post.recurring %}X{% endif %} </td>
+            <td> {% if post.user.no_dairy %}No dairy /n{% endif %} </td>
+            <td> {% if post.user.no_wheat %}No wheat /n{% endif %} </td>
+            <td> {% if post.user.no_soy %}No soy /n{% endif %} </td>
+            <td> {% if post.user.no_caffeine %}No caffeine /n{% endif %} </td>
+            <td> {% if post.user.no_alcohol %}No alcohol /n{% endif %} </td>
+            <td> {{ post.blurb }} </td>
+
+
+        </tr>
+    {% endfor %}
+
 	<div>
 	</div>
 
