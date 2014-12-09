@@ -77,11 +77,11 @@ List of donor posts
             <td> {{ post.user.zip_code }} </td>
             <td> {{ post.amt_milk }}
             <td> {% if post.recurring %}X{% endif %} </td>
-            <td> {% if post.user.no_dairy %}No dairy /n{% endif %} </td>
-            <td> {% if post.user.no_wheat %}No wheat /n{% endif %} </td>
-            <td> {% if post.user.no_soy %}No soy /n{% endif %} </td>
-            <td> {% if post.user.no_caffeine %}No caffeine /n{% endif %} </td>
-            <td> {% if post.user.no_alcohol %}No alcohol /n{% endif %} </td>
+            <td> {% if post.user.no_dairy %}No dairy{% endif %} </td>
+            <td> {% if post.user.no_wheat %}No wheat {% endif %} </td>
+            <td> {% if post.user.no_soy %}No soy{% endif %} </td>
+            <td> {% if post.user.no_caffeine %}No caffeine{% endif %} </td>
+            <td> {% if post.user.no_alcohol %}No alcohol {% endif %} </td>
             <td> {{ post.blurb }} </td>
     </tr>
     {% endfor %}

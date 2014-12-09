@@ -23,9 +23,6 @@ def show_main():
     return render_template("main.html")
 
 
-@app.route("/tryother")
-def try_other():
-    return render_template("crap.html")
 
 @app.route("/login", methods=['POST'])
 def actually_login():
