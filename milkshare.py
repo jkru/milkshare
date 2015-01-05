@@ -206,6 +206,9 @@ def new_post():
     #return render_template("newpost.html")
     return redirect(url_for("milk_exchange_board"))
 
+
+
 if __name__ == "__main__":
-    app.run()
+    PORT = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0",port=PORT)
 
