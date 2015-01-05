@@ -2,10 +2,15 @@ from flask import Flask, request, render_template, make_response
 from flask import redirect, url_for, session, g, flash
 import jinja2
 import model
+import os
 from datetime import datetime
 
+
+SECRET_KEY = os.environ.get("FLASK_SECRET_KEY", "boobs")
+
+
 app = Flask(__name__)
-app.secret_key = 'boobs'
+app.secret_key = SECRET_KEY
 
 
 @app.route("/")
@@ -202,5 +207,5 @@ def new_post():
     return redirect(url_for("milk_exchange_board"))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
 
